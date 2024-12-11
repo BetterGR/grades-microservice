@@ -18,7 +18,7 @@ option go_package = "github.com/BetterGR/grades-microservice/protos";
 
 package grades;
 
-// The greeting service definition.
+//GradesService is a microservice responsible for managing grades
 service GradesService {
   // GetCourseGrades returns all students grades enrolled in a specific course
   rpc GetCourseGrades(GetCourseGradesRequest) returns (GetCourseGradesResponse);

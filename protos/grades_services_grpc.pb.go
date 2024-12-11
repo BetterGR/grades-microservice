@@ -47,7 +47,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
-// The greeting service definition.
+// GradesService is a microservice responsible for managing grades
 type GradesServiceClient interface {
 	// GetCourseGrades returns all students grades enrolled in a specific course
 	GetCourseGrades(ctx context.Context, in *GetCourseGradesRequest, opts ...grpc.CallOption) (*GetCourseGradesResponse, error)
@@ -159,7 +159,7 @@ func (c *gradesServiceClient) DeleteExamGrade(ctx context.Context, in *DeleteExa
 // All implementations must embed UnimplementedGradesServiceServer
 // for forward compatibility.
 //
-// The greeting service definition.
+// GradesService is a microservice responsible for managing grades
 type GradesServiceServer interface {
 	// GetCourseGrades returns all students grades enrolled in a specific course
 	GetCourseGrades(context.Context, *GetCourseGradesRequest) (*GetCourseGradesResponse, error)
