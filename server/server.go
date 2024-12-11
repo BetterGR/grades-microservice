@@ -17,6 +17,7 @@ const (
 	connectionProtocol = "tcp"
 )
 
+// GradesServer is the server struct still needs to implement the GradesServiceServer interface
 type GradesServer struct {
 	// throws unimplemented error
 	gpb.UnimplementedGradesServiceServer
