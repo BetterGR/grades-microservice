@@ -18,49 +18,48 @@ option go_package = "github.com/BetterGR/grades-microservice/protos";
 
 package grades;
 
-//GradesService is a microservice responsible for managing grades
+//GradesService is a microservice responsible for managing grades.
 service GradesService {
-  // GetCourseGrades returns all students grades enrolled in a specific course
+  // GetCourseGrades returns all students grades enrolled in a specific course.
   rpc GetCourseGrades(GetCourseGradesRequest) returns (GetCourseGradesResponse);
 
-  // GetStudentCourseGrades returns a specific student grades in specific course
+  // GetStudentCourseGrades returns a specific student grades in specific course.
   rpc GetStudentCourseGrades(GetStudentCourseGradesRequest) returns (GetStudentCourseGradesResponse);
 
-  // AddHomeworkGrade adds a homework grade for a student in specific course
+  // AddHomeworkGrade adds a homework grade for a student in specific course.
   rpc AddHomeworkGrade(AddHomeworkGradeRequest) returns (Empty);
 
-  // AddExamGrade adds an exam grade for a student in specific course
+  // AddExamGrade adds an exam grade for a student in specific course.
   rpc AddExamGrade(AddExamGradeRequest) returns (Empty);
 
-  // UpdateHomeworkGrade updates a homework grade for a student in specific course
+  // UpdateHomeworkGrade updates a homework grade for a student in specific course.
   rpc UpdateHomeworkGrade(UpdateHomeworkGradeRequest) returns (Empty);
 
-  // UpdateExamGrade updates an exam grade for a student in specific course
+  // UpdateExamGrade updates an exam grade for a student in specific course.
   rpc UpdateExamGrade(UpdateExamGradeRequest) returns (Empty);
 
-  // DeleteHomeworkGrade deletes a homework grade for a student in specific course
+  // DeleteHomeworkGrade deletes a homework grade for a student in specific course.
   rpc DeleteHomeworkGrade(DeleteHomeworkGradeRequest) returns (Empty);
 
-  // DeleteExamGrade deletes an exam grade for a student in specific course
+  // DeleteExamGrade deletes an exam grade for a student in specific course.
   rpc DeleteExamGrade(DeleteExamGradeRequest) returns (Empty);
 }
 
-//------------------------------- Data Types -------------------------------
-// ExamGrade is a single Exam grade message
+// ExamGrade is a single Exam grade message.
 message ExamGrade {
   string course = 1;
   string exam_type = 2;
   string grade = 3;
 }
 
-// HomeworkGrade is a single Homework grade message
+// HomeworkGrade is a single Homework grade message.
 message HomeworkGrade {
   string course = 1;
   string homework_number = 2;
   string grade = 3;
 }
 
-// StudentCourseGrades represent all specific course grades for a student
+// StudentCourseGrades represent all specific course grades for a student.
 message StudentCourseGrades {
   string student_id = 1;
   string course_id = 2;
@@ -68,39 +67,37 @@ message StudentCourseGrades {
   repeated HomeworkGrade homeworks = 4;
 }
 
-// StudentGrades represent all grades for a student
+// StudentGrades represent all grades for a student.
 message StudentGrades {
   string student_id = 1;
   repeated StudentCourseGrades courses = 2;
 }
 
-// Empty message could be used later to validate the request
+// Empty message could be used later to validate the request.
 message Empty {}
 
-//------------------------------- Request and Response -------------------------------
-
-// GetCourseGradesRequest is a request message to get grades of all students enrolled in a specific course
+// GetCourseGradesRequest is a request message to get grades of all students enrolled in a specific course.
 message GetCourseGradesRequest {
   string course_id = 1;
 }
 
-// GetCourseGradesResponse is a response message for all students grades enrolled in a specific course
+// GetCourseGradesResponse is a response message for all students grades enrolled in a specific course.
 message GetCourseGradesResponse {
   repeated StudentCourseGrades grades = 1;
 }
 
-// GetStudentCourseGradesRequest is a request message to get a specific student grades in specific course
+// GetStudentCourseGradesRequest is a request message to get a specific student grades in specific course.
 message GetStudentCourseGradesRequest {
   string student_id = 1;
   string course_id = 2;
 }
 
-// GetStudentCourseGradesResponse is a response message for a specific student grades in specific course
+// GetStudentCourseGradesResponse is a response message for a specific student grades in specific course.
 message GetStudentCourseGradesResponse {
   StudentCourseGrades course_grades = 1;
 }
 
-// AddHomeworkGradeRequest is a request message to add a homework grade for a student in specific course
+// AddHomeworkGradeRequest is a request message to add a homework grade for a student in specific course.
 message AddHomeworkGradeRequest {
   string student_id = 1;
   string course_id = 2;
@@ -108,7 +105,7 @@ message AddHomeworkGradeRequest {
   string grade = 4;
 }
 
-// UpdateHomeworkGradeRequest is a request message to update a homework grade for a student in specific course
+// UpdateHomeworkGradeRequest is a request message to update a homework grade for a student in specific course.
 message UpdateHomeworkGradeRequest {
   string student_id = 1;
   string course_id = 2;
@@ -116,7 +113,7 @@ message UpdateHomeworkGradeRequest {
   string grade = 4;
 }
 
-// AddExamGradeRequest is a request message to add an exam grade for a student in specific course
+// AddExamGradeRequest is a request message to add an exam grade for a student in specific course.
 message AddExamGradeRequest {
   string student_id = 1;
   string course_id = 2;
@@ -124,7 +121,7 @@ message AddExamGradeRequest {
   string grade = 4;
 }
 
-// UpdateExamGradeRequest is a request message to update an exam grade for a student in specific course
+// UpdateExamGradeRequest is a request message to update an exam grade for a student in specific course.
 message UpdateExamGradeRequest {
   string student_id = 1;
   string course_id = 2;
@@ -132,14 +129,14 @@ message UpdateExamGradeRequest {
   string grade = 4;
 }
 
-// DeleteHomeworkGradeRequest is a request message to delete a homework grade for a student in specific course
+// DeleteHomeworkGradeRequest is a request message to delete a homework grade for a student in specific course.
 message DeleteHomeworkGradeRequest {
   string student_id = 1;
   string course_id = 2;
   string homework_number = 3;
 }
 
-// DeleteExamGradeRequest is a request message to delete an exam grade for a student in specific course
+// DeleteExamGradeRequest is a request message to delete an exam grade for a student in specific course.
 message DeleteExamGradeRequest {
   string student_id = 1;
   string course_id = 2;
