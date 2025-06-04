@@ -1,6 +1,6 @@
 module github.com/BetterGR/grades-microservice
 
-go 1.23.3
+go 1.24.3
 
 require (
 	github.com/TekClinic/MicroService-Lib v0.1.3
